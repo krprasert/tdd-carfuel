@@ -33,7 +33,7 @@
   <tbody>
     @foreach (var car in Model) {
     <tr>
-      <td>@car.Make</td>
+        <td>@Html.ActionLink(car.Make, "Details", new { id = car.Id })</td>
       <td>@car.Model</td>
       <td>@car.AverageKmL</td>
     </tr>

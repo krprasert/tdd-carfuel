@@ -47,5 +47,12 @@ namespace CarFuel.Controllers {
  
       return RedirectToAction("Index");
     }
-  }
+
+        public ActionResult Detail(Guid id)
+        {
+            var UserId = new Guid(User.Identity.GetUserId());
+            var c = carService.GetCarsByMember(UserId).SingleOrDefault(X => X.Id == id);
+            return View();
+        }
+    }
 }
