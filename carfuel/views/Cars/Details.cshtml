@@ -3,6 +3,13 @@
 
 <h2>@Model.Make (@Model.Model)</h2>
 
-<div class="well well-sm">
-    Average consumption is <strong>@(Model.AverageKmL?.ToString("n2"))</strong> KM/L
+<div class="well well-sm">@if (Model.AverageKmL == null)
+{
+    <div>
+   Not Fillup Data to calculate.
+        </div>
+} else
+{
+  @: Average consumption is <strong>@(Model.AverageKmL?.ToString("n2"))</strong> KM / L
+ }
 </div>
