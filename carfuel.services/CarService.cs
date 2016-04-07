@@ -7,7 +7,8 @@ using CarFuel.DataAccess;
 using CarFuel.Models;
 
 namespace CarFuel.Services {
-  public class CarService {
+  public class CarService : ICarService
+    {
 
     public ICarDb CarDb { get; }
 
