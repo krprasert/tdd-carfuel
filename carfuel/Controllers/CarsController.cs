@@ -50,6 +50,12 @@ namespace CarFuel.Controllers {
 
         public ActionResult Details(Guid id)
         {
+            if( id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Bad Request");
+            }
+            
+        
             var userId = new Guid(User.Identity.GetUserId());
 
             var c = carService.GetCarsByMember(userId).SingleOrDefault(x => x.Id == id);
