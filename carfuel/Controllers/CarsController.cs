@@ -7,16 +7,15 @@ using CarFuel.DataAccess;
 using CarFuel.Models;
 using CarFuel.Services;
 using Microsoft.AspNet.Identity;
+using System.Net;
 
 namespace CarFuel.Controllers {
   public class CarsController : Controller {
 
-    private ICarDb db;
-    private CarService carService;
+        private readonly ICarService carService;
 
-    public CarsController() {
-      db = new CarDb();
-      carService = new CarService(db);
+    public CarsController(ICarService carService) {
+            this.carService = carService;
     }
 
     [Authorize]
@@ -52,7 +51,7 @@ namespace CarFuel.Controllers {
         {
             if( id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Bad Request");
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             
         
